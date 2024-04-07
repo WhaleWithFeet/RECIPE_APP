@@ -43,6 +43,10 @@ class RandomRecipeGenerator : Fragment() {
                     }
                     is RandomRecipeViewModel.RecipeCharacterEvent.Success -> {
                         binding.randomName.text = event.randomRecipe.meals.get(0).strMeal
+                        binding.areaOfRecipe.text = event.randomRecipe.meals.get(0).strArea
+                        binding.category.text = event.randomRecipe.meals.get(0).strCategory
+                        binding.subCategories.text = event.randomRecipe.meals.get(0).strTags
+                        binding.instructions.text = event.randomRecipe.meals.get(0).strInstructions
                         binding.nameSection.isVisible = true
                         binding.randomName.isVisible = true
                         binding.progressBar.isVisible = false
