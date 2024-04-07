@@ -89,6 +89,73 @@
             android:layout_gravity="top"
             android:background="@color/black"/>
     </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:cardBackgroundColor="@color/teal_200"
+        app:layout_constraintTop_toBottomOf="@id/name_section"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <TextView
+            android:id="@+id/category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="25dp"
+            android:text="CATEGORY"/>
+        <TextView
+            android:id="@+id/area_of_recipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="30dp"
+            android:text="AREA"/>
+        <TextView
+            android:id="@+id/sub_categories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="60dp"
+            android:text="SUB_CATEGORIES"/>
+        <TextView
+            android:id="@+id/instruction_starter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="90dp"
+            android:text="Insructions:"/>
+        <TextView
+            android:id="@+id/instructions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="120dp"
+            android:text="ACTUAL INSTRUCTIONS"/>
+
+
+        <TextView
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/black"/>
+        <TextView
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@color/black"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_gravity="bottom"
+            android:background="@color/black"/>
+
+    </androidx.cardview.widget.CardView>
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="match_parent"

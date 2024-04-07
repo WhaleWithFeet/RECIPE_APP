@@ -11,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import com.kroger.classapp.databinding.FragmentRandomRecipeGeneratorBinding
 import com.kroger.classapp.ui.viewmodel.RandomRecipeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class RandomRecipeGenerator : Fragment() {

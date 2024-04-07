@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragments.RandomRecipeGenerator">
     <androidx.cardview.widget.CardView
         android:id="@+id/top_text"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-
         app:cardBackgroundColor="@color/teal_200"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="RECIPE OF THE DAY"
+            android:text="Recipe Of The Day"
             android:layout_gravity="center"/>
         <TextView
             android:layout_width="match_parent"
@@ -46,7 +46,6 @@
             android:layout_height="match_parent"
             android:layout_gravity="end"
             android:background="@color/black"/>
-
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
         android:id="@+id/name_section"
@@ -57,6 +56,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
         <TextView
+            android:id="@+id/random_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -90,13 +90,55 @@
             android:background="@color/black"/>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
-        android:id="@+id/favorite_section"
+        android:id="@+id/description"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="0dp"
         app:cardBackgroundColor="@color/teal_200"
         app:layout_constraintTop_toBottomOf="@id/name_section"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <TextView
+            android:id="@+id/category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="25dp"
+            android:text="CATEGORY"/>
+        <TextView
+            android:id="@+id/area_of_recipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="30dp"
+            android:text="AREA"/>
+        <TextView
+            android:id="@+id/sub_categories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="60dp"
+            android:text="SUB_CATEGORIES"/>
+        <TextView
+            android:id="@+id/instruction_starter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="90dp"
+            android:text="Insructions:"/>
+        <TextView
+            android:id="@+id/instructions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="120dp"
+            android:text="ACTUAL INSTRUCTIONS"/>
+
+
         <TextView
             android:layout_width="10dp"
             android:layout_height="match_parent"
@@ -108,11 +150,26 @@
             android:layout_gravity="end"
             android:background="@color/black"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Times Favorited: "
-            android:layout_gravity="start"
-            android:layout_marginTop="12.5dp"
-            android:layout_marginStart="15dp"/>
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_gravity="bottom"
+            android:background="@color/black"/>
+
     </androidx.cardview.widget.CardView>
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/error_message"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
