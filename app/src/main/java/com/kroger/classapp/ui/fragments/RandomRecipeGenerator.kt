@@ -12,7 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import com.kroger.classapp.databinding.FragmentRandomRecipeGeneratorBinding
 import com.kroger.classapp.ui.viewmodel.RandomRecipeViewModel
 import kotlinx.coroutines.launch
-
+@AndroidEntryPoint
 class RandomRecipeGenerator : Fragment() {
     private var _binding: FragmentRandomRecipeGeneratorBinding? = null
     private val binding get() = _binding!!
