@@ -6,14 +6,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.kroger.classapp.R
+import com.kroger.classapp.databinding.FragmentRecipeOfTheDayBinding
+import com.kroger.classapp.databinding.FragmentRecipeSearchBinding
 
 class RecipeOfTheDayFragment : Fragment() {
-
+    private var _binding: FragmentRecipeOfTheDayBinding? = null
+    private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_recipe_of_the_day, container, false)
+        _binding = FragmentRecipeOfTheDayBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

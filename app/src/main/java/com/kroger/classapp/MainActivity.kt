@@ -10,7 +10,9 @@ import com.kroger.classapp.ui.fragments.RecipeOfTheDayFragment
 import com.kroger.classapp.ui.fragments.RecipeSearch
 import com.kroger.classapp.ui.adapter.ViewPagerAdapter
 import com.kroger.classapp.ui.fragments.TestFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

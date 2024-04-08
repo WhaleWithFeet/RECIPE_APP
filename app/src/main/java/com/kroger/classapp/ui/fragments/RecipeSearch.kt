@@ -18,15 +18,17 @@ import com.kroger.classapp.model.Recipe
 import com.kroger.classapp.model.RecipeResponse
 import com.kroger.classapp.ui.adapter.RecipeAdapter
 import com.kroger.classapp.ui.viewmodel.RecipeViewModel
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.util.Locale
+
 
 class RecipeSearch : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var searchView: SearchView
-    private var mList = ArrayList<Recipe>()
     private lateinit var adapter: RecipeAdapter
+    private var mList = ArrayList<Recipe>()
+    private val recipeViewModel: RecipeViewModel by activityViewModels()
+
 
     private var _binding: FragmentRecipeSearchBinding? = null
     private val binding get() = _binding!!
@@ -56,7 +58,15 @@ class RecipeSearch : Fragment() {
             }
         })
 
-        return inflater.inflate(R.layout.fragment_recipe_search, container, false)
+        return binding.root
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
     private fun filterList(query :  String?){
         if(query != null){
@@ -75,33 +85,33 @@ class RecipeSearch : Fragment() {
     }
 
     private fun addDataToList(){
-        mList.add(Recipe("Eggs", R.drawable.dredd))
-        mList.add(Recipe("Bacon", R.drawable.dredd_2))
-        mList.add(Recipe("Pickle", R.drawable.dredd_3))
-        mList.add(Recipe("Cheese", R.drawable.dredd))
-        mList.add(Recipe("Lettuce", R.drawable.dredd_2))
-        mList.add(Recipe("Salad", R.drawable.dredd_3))
-        mList.add(Recipe("Carrot", R.drawable.dredd))
-        mList.add(Recipe("Lamb Chops", R.drawable.dredd_2))
-        mList.add(Recipe("Salami", R.drawable.dredd_3))
+        mList.add(Recipe("Eggs", R.drawable.screenshot__139_))
+        mList.add(Recipe("Bacon", R.drawable.screenshot__139_))
+        mList.add(Recipe("Pickle", R.drawable.screenshot__139_))
+        mList.add(Recipe("Cheese", R.drawable.screenshot__139_))
+        mList.add(Recipe("Lettuce", R.drawable.screenshot__139_))
+        mList.add(Recipe("Salad", R.drawable.screenshot__139_))
+        mList.add(Recipe("Carrot", R.drawable.screenshot__139_))
+        mList.add(Recipe("Lamb Chops", R.drawable.screenshot__139_))
+        mList.add(Recipe("Salami", R.drawable.screenshot__139_))
     }
 
-    /*@SuppressLint()
+    @SuppressLint()
     fun refreshData(recipes: List<RecipeResponse>){
         mList.clear()
         //mList.addAll(recipes)
     }
-    /*fun setupObservers(){
+    fun setupObservers(){
         lifecycleScope.launch {
-            RecipeViewModel.recipes.collect { event ->
+            recipeViewModel.recipes.collect { event ->
                 when (event){
-                    RecipeViewModel.RecipeCharacterEvent.Failure -> {
+                    RecipeViewModel.RecipeEvent.Failure -> {
 
                     }
-                    RecipeViewModel.RecipeCharacterEvent.Loading -> {
+                    RecipeViewModel.RecipeEvent.Loading -> {
 
                     }
-                    is RecipeViewModel.RecipeCharacterEvent.Success -> {
+                    is RecipeViewModel.RecipeEvent.Success -> {
 
                     }
                 }
@@ -109,8 +119,6 @@ class RecipeSearch : Fragment() {
         }
     }
 
-     */
 
-     */
 
 }

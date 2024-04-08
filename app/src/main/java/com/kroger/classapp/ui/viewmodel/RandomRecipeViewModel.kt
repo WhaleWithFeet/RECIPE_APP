@@ -16,20 +16,20 @@ class RandomRecipeViewModel  @Inject constructor(
     private val recipeRepository: RecipeRepository
 ) : ViewModel() {
 
-    private val _randomRecipe = MutableStateFlow<RecipeCharacterEvent>(RecipeCharacterEvent.Loading)
-    val randomRecipe: StateFlow<RecipeCharacterEvent> = _randomRecipe
+    private val _randomRecipe = MutableStateFlow<RecipeEvent>(RecipeEvent.Loading)
+    val randomRecipe: StateFlow<RecipeEvent> = _randomRecipe
 
     fun getRandom() = viewModelScope.launch {
         when (val response = recipeRepository.getRandomRecipe()){
-            DataRandomRecipeResponse.Error -> _randomRecipe.value = RecipeCharacterEvent.Failure
-            is DataRandomRecipeResponse.Success -> _randomRecipe.value = RecipeCharacterEvent.Success(response.recipe)
+            DataRandomRecipeResponse.Error -> _randomRecipe.value = RecipeEvent.Failure
+            is DataRandomRecipeResponse.Success -> _randomRecipe.value = RecipeEvent.Success(response.recipe)
         }
     }
 
-    sealed class RecipeCharacterEvent {
-        data class Success(val randomRecipe: RandomRecipe) : RecipeCharacterEvent()
-        data object Failure : RecipeCharacterEvent()
-        data object Loading : RecipeCharacterEvent()
+    sealed class RecipeEvent {
+        data class Success(val randomRecipe: RandomRecipe) : RecipeEvent()
+        data object Failure : RecipeEvent()
+        data object Loading : RecipeEvent()
     }
 
 

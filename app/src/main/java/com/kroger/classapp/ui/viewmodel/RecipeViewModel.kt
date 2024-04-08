@@ -16,19 +16,19 @@ class RecipeViewModel  @Inject constructor(
     private val recipeRepository: RecipeRepository
 ) : ViewModel() {
 
-    private val _recipes = MutableStateFlow<RecipeCharacterEvent>(RecipeCharacterEvent.Loading)
-    val recipes: StateFlow<RecipeCharacterEvent> = _recipes
+    private val _recipes = MutableStateFlow<RecipeEvent>(RecipeEvent.Loading)
+    val recipes: StateFlow<RecipeEvent> = _recipes
 
     fun fillData() = viewModelScope.launch {
         when (val response = recipeRepository.getRecipe()){
-            DataRecipeResponse.Error -> _recipes.value = RecipeCharacterEvent.Failure
-            is DataRecipeResponse.Success -> _recipes.value = RecipeCharacterEvent.Success(response.recipes)
+            DataRecipeResponse.Error -> _recipes.value = RecipeEvent.Failure
+            is DataRecipeResponse.Success -> _recipes.value = RecipeEvent.Success(response.recipes)
         }
     }
 
-    sealed class RecipeCharacterEvent {
-        data class Success(val recipes: List<RecipeResponse.Meal>) : RecipeCharacterEvent()
-        data object Failure : RecipeCharacterEvent()
-        data object Loading : RecipeCharacterEvent()
+    sealed class RecipeEvent {
+        data class Success(val recipes: List<RecipeResponse.Meal>) : RecipeEvent()
+        data object Failure : RecipeEvent()
+        data object Loading : RecipeEvent()
     }
 }

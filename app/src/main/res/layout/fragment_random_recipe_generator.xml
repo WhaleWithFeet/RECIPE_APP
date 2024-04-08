@@ -33,6 +33,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
         <ImageView
+            android:id="@+id/actual_image"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"/>
